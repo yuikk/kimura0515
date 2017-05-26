@@ -1,4 +1,5 @@
-﻿#pragma once
+#pragma once
+#include "ofxGui.h"
 
 #include "ofMain.h"
 
@@ -8,6 +9,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+        void sujiButtonPressed();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -20,7 +22,12 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        int a;
+        //ofxButton sujiButton;
+        //ofxPanel gui;
+        //ofImage image1;
+        int _key;
+        string input;
+        int input2;
+        int val1;
         int b;
-        int kekka;
 };

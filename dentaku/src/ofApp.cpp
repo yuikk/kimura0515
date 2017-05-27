@@ -16,77 +16,136 @@ void ofApp::update(){
 void ofApp::draw(){
     ofSetColor(0, 0, 255);
     
-    string myNum = ofToString(_key );
+    
     string ab = "a=";
-    ofDrawBitmapString("ab" ,10,10);
-    ofDrawBitmapString("myNum" ,40,10);
-    input2 = input2* 10 +_key;
+    ofDrawBitmapString(ab ,10,10);
+    ofDrawBitmapString(suji ,40,10);
+    ofDrawBitmapString(enzan ,40,25);
+    //input2 = input2* 10 +_key;
     
     
     //TODO: intからStringへの変換方法
-    //int num = _key;
     //string f = _key;
     //ofDrawBitmapString(f,40,10);
-    input2 = input2* 10 +_key;
+    //input2 = input2* 10 +_key;
     //strcat
     
     
     string ac = "b=";
     ofDrawBitmapString(ac,10,40);
-    string w = ofToString(_key);
-    ofDrawBitmapString(w,40,40);
-    input2 = input2* 10 +_key;
+    ofDrawBitmapString(mNum,40,40);
+    //input2 = input2* 10 +_key;
+    ofDrawBitmapString(keka,40,55);
     
-    
-    //scanf("%d",&a);
-    
-   // string ac = "b=";
-   // ofDrawBitmapString(ac,10,20);
-    //ofDrawBitmapString(b,40,20);
-    }
+       }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    kaisu = 0;
+    if(kaisu == 0){
     switch(key){
-        case 1:
+        case '1':
             _key=1;
             break;
-        case 2:
+        case '2':
             _key=2;
             break;
-        case 3:
+        case '3':
             _key=3;
             break;
-        case 4:
+        case '4':
             _key=4;
             break;
-        case 5:
+        case '5':
             _key=5;
             break;
-        case 6:
+        case '6':
             _key=6;
             break;
-        case 7:
+        case '7':
             _key=7;
             break;
-        case 8:
+        case '8':
             _key=8;
             break;
-        case 9:
+        case '9':
             _key=9;
             break;
-        case 0:
+        case '0':
             _key=0;
             break;
-        case A;
-            
-            brake;
+        case 'a':
+            enzan = "+";
+            break;
+        case 's':
+            enzan = "-";
+            break;
+        case 'z':
+            enzan = "*";
+            break;
+        case 'x':
+            enzan = "/";
+            break;
         default:
             break;
             
     }
-    
-    
+        kaisu++;
+    }else if(kaisu == 1){
+        switch(key){
+            case '1':
+                _kke=1;
+                break;
+            case '2':
+                _kke=2;
+                break;
+            case '3':
+                _kke=3;
+                break;
+            case '4':
+                _kke=4;
+                break;
+            case '5':
+                _kke=5;
+                break;
+            case '6':
+                _kke=6;
+                break;
+            case '7':
+                _kke=7;
+                break;
+            case '8':
+                _kke=8;
+                break;
+            case '9':
+                _kke=9;
+                break;
+            case '0':
+                _kke=0;
+                break;
+            case 'a':
+                enzan = "+";
+                break;
+            default:
+                break;
+        
+    }
+    kaisu++;
+    }else{
+        if (enzan == "+"){
+            Result += _key;
+        } else if (enzan == "-"){
+            Result -= _key ;
+        } else if (enzan == "*"){
+            Result *= _key;
+        }else {
+            Result /= _key;
+        }
+    }
+    suji = ofToString(_key );
+    mNum = ofToString(_kke );
+    keka = ofToString(Result );
+
     
   //  scanf("%d",&a);
     

@@ -9,7 +9,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-        void sujiButtonPressed();
+        //void sujiButtonPressed();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -25,9 +25,17 @@ class ofApp : public ofBaseApp{
         //ofxButton sujiButton;
         //ofxPanel gui;
         //ofImage image1;
+        string mNum;
+        string suji;
+        string enzan;
+        string keka;
         int _key;
-        string input;
-        int input2;
-        int val1;
-        int b;
+        int _kke;
+        int Result;
+        int kaisu;
+        //int b;
+        //string input;
+        //int input2;
+        //int val1;
+    
 };

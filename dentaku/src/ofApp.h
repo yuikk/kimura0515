@@ -27,15 +27,17 @@ class ofApp : public ofBaseApp{
         //ofImage image1;
         string mNum;
         string suji;
+        string suji2;
         string enzan;
+        string enzan2;
         string keka;
+        string keka2;
         int _key;
-        int _kke;
+        int _key2;
         int Result;
-        int kaisu;
         //int b;
-        //string input;
-        //int input2;
+        int input;
+        int input2;
         //int val1;
     
 };

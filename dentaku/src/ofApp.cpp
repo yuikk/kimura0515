@@ -15,147 +15,139 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(0, 0, 255);
-    
-    
-    string ab = "a=";
-    ofDrawBitmapString(ab ,10,10);
-    ofDrawBitmapString(suji ,40,10);
-    ofDrawBitmapString(enzan ,40,25);
-    //input2 = input2* 10 +_key;
-    
-    
-    //TODO: intからStringへの変換方法
-    //string f = _key;
-    //ofDrawBitmapString(f,40,10);
-    //input2 = input2* 10 +_key;
-    //strcat
-    
-    
-    string ac = "b=";
-    ofDrawBitmapString(ac,10,40);
-    ofDrawBitmapString(mNum,40,40);
-    //input2 = input2* 10 +_key;
-    ofDrawBitmapString(keka,40,55);
-    
-       }
+    ofDrawBitmapString(suji ,20,10);
+    ofDrawBitmapString(enzan ,40,10);
+    ofDrawBitmapString(suji2,60,10);
+    ofDrawBitmapString(enzan2,80,10);
+    ofDrawBitmapString(keka2,100,10);
+    }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    kaisu = 0;
-    if(kaisu == 0){
-    switch(key){
-        case '1':
-            _key=1;
-            break;
-        case '2':
-            _key=2;
-            break;
-        case '3':
-            _key=3;
-            break;
-        case '4':
-            _key=4;
-            break;
-        case '5':
-            _key=5;
-            break;
-        case '6':
-            _key=6;
-            break;
-        case '7':
-            _key=7;
-            break;
-        case '8':
-            _key=8;
-            break;
-        case '9':
-            _key=9;
-            break;
-        case '0':
-            _key=0;
-            break;
-        case 'a':
-            enzan = "+";
-            break;
-        case 's':
-            enzan = "-";
-            break;
-        case 'z':
-            enzan = "*";
-            break;
-        case 'x':
-            enzan = "/";
-            break;
-        default:
-            break;
-            
-    }
-        kaisu++;
-    }else if(kaisu == 1){
+    if(_key == 'q'){
+        if(enzan == "+"){
+            keka = input + input2;
+        }else if(enzan == "-"){
+            keka = input -input2;
+        }else if(enzan == "*"){
+            keka = input * input2;
+        }else{
+            keka = input / input2;
+        }
+    }else if(enzan == "+" || enzan == "-" || enzan == "*" || enzan == "/"){
         switch(key){
             case '1':
-                _kke=1;
+                _key=1;
+                input2 = input2* 10 +_key;
                 break;
             case '2':
-                _kke=2;
+                _key=2;
+                input2 = input2* 10 +_key;
                 break;
             case '3':
-                _kke=3;
+                _key=3;
+                input2 = input2* 10 +_key;
                 break;
             case '4':
-                _kke=4;
+                _key=4;
+                input2 = input2* 10 +_key;
                 break;
             case '5':
-                _kke=5;
+                _key=5;
+                input2 = input2* 10 +_key;
                 break;
             case '6':
-                _kke=6;
+                _key=6;
+                input2 = input2* 10 +_key;
                 break;
             case '7':
-                _kke=7;
+                _key=7;
+                input2 = input2* 10 +_key;
                 break;
             case '8':
-                _kke=8;
+                _key=8;
+                input2 = input2* 10 +_key;
                 break;
             case '9':
-                _kke=9;
+                _key=9;
+                input2 = input2* 10 +_key;
                 break;
             case '0':
-                _kke=0;
+                _key=0;
+                input2 = input2* 10 +_key;
+                break;
+            case'q':
+                enzan2 = "=";
+                break;
+            default:
+                break;
+                
+        }
+
+    }else{
+        switch(key){
+            case '1':
+                _key2=1;
+                input = input* 10 +_key2;
+                break;
+            case '2':
+                _key2=2;
+                input = input* 10 +_key2;
+                break;
+            case '3':
+                _key2=3;
+                input = input* 10 +_key2;
+                break;
+            case '4':
+                _key2=4;
+                input = input* 10 +_key2;
+                break;
+            case '5':
+                _key2=5;
+                input = input* 10 +_key2;
+                break;
+            case '6':
+                _key2=6;
+                input = input* 10 +_key2;
+                break;
+            case '7':
+                _key2=7;
+                input = input* 10 +_key2;
+                break;
+            case '8':
+                _key2=8;
+                input = input* 10 +_key2;
+                break;
+            case '9':
+                _key2=9;
+                input = input* 10 +_key2;
+                break;
+            case '0':
+                _key2=0;
+                input = input* 10 +_key2;
                 break;
             case 'a':
                 enzan = "+";
                 break;
+            case 's':
+                enzan = "-";
+                break;
+            case 'z':
+                enzan = "*";
+                break;
+            case 'x':
+                enzan = "/";
+                break;
             default:
                 break;
-        
-    }
-    kaisu++;
-    }else{
-        if (enzan == "+"){
-            Result += _key;
-        } else if (enzan == "-"){
-            Result -= _key ;
-        } else if (enzan == "*"){
-            Result *= _key;
-        }else {
-            Result /= _key;
+                
         }
+
     }
-    suji = ofToString(_key );
-    mNum = ofToString(_kke );
-    keka = ofToString(Result );
-
-    
-  //  scanf("%d",&a);
-    
-  //  scanf("%d",&b);
-    
-    //kekka = a + b;
- //   string aa = "計算結果";
-   // ofDrawBitmapString(aa,10,30);
-    //ofDrawBitmapString(kekka,10,40);計算のここ
-
+   
+    suji = ofToString(input);
+    suji2 = ofToString(input2 );
+    keka2 = ofToString(keka);
 }
 
 //--------------------------------------------------------------

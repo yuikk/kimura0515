@@ -8,23 +8,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
-    
-}
-
-//--------------------------------------------------------------
-void ofApp::draw(){
-    ofSetColor(0, 0, 255);
-    ofDrawBitmapString(suji ,20,10);
-    ofDrawBitmapString(enzan ,40,10);
-    ofDrawBitmapString(suji2,60,10);
-    ofDrawBitmapString(enzan2,80,10);
-    ofDrawBitmapString(keka2,100,10);
-    }
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-    if(_key == 'q'){
+    if(equalFlag == true){
         if(enzan == "+"){
             keka = input + input2;
         }else if(enzan == "-"){
@@ -34,7 +18,32 @@ void ofApp::keyPressed(int key){
         }else{
             keka = input / input2;
         }
-    }else if(enzan == "+" || enzan == "-" || enzan == "*" || enzan == "/"){
+    }
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    ofSetColor(0, 0, 255);
+    ofDrawBitmapString(suji ,20,10);
+    ofDrawBitmapString(enzan ,20,30);
+    if(opeFlag == true){
+         ofDrawBitmapString(suji2,20,50);
+    }
+    ofDrawBitmapString(enzan2,20,70);
+    if(equalFlag == true){
+        ofDrawBitmapString(keka2,20,90);
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::keyPressed(int key){
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::keyReleased(int key){
+    if(opeFlag == true){
         switch(key){
             case '1':
                 _key=1;
@@ -77,13 +86,15 @@ void ofApp::keyPressed(int key){
                 input2 = input2* 10 +_key;
                 break;
             case'q':
+                //_key = 'q';
+                equalFlag = true;
                 enzan2 = "=";
                 break;
             default:
                 break;
                 
         }
-
+        
     }else{
         switch(key){
             case '1':
@@ -128,31 +139,32 @@ void ofApp::keyPressed(int key){
                 break;
             case 'a':
                 enzan = "+";
+                opeFlag = true;
                 break;
             case 's':
                 enzan = "-";
+                opeFlag = true;
                 break;
             case 'z':
                 enzan = "*";
+                opeFlag = true;
                 break;
             case 'x':
                 enzan = "/";
+                opeFlag = true;
                 break;
             default:
                 break;
                 
         }
-
+        
+        
+        
     }
-   
+    
     suji = ofToString(input);
-    suji2 = ofToString(input2 );
+    suji2 = ofToString(input2);
     keka2 = ofToString(keka);
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
 }
 
 //--------------------------------------------------------------

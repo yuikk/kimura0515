@@ -22,22 +22,19 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        //ofxButton sujiButton;
-        //ofxPanel gui;
-        //ofImage image1;
         string mNum;
         string suji;
         string suji2;
         string enzan;
         string enzan2;
-        string keka;
+        int keka;
         string keka2;
         int _key;
         int _key2;
         int Result;
-        //int b;
         int input;
         int input2;
-        //int val1;
+        bool opeFlag = false;
+        bool equalFlag = false;
     
 };

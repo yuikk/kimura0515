@@ -8,31 +8,32 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    if(equalFlag == true){
-        if(enzan == "+"){
-            keka = input + input2;
-        }else if(enzan == "-"){
-            keka = input -input2;
-        }else if(enzan == "*"){
-            keka = input * input2;
-        }else{
-            keka = input / input2;
-        }
-    }
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(0, 0, 255);
-    ofDrawBitmapString(suji ,20,10);
-    ofDrawBitmapString(enzan ,20,30);
-    if(opeFlag == true){
-         ofDrawBitmapString(suji2,20,50);
+    ofTrueTypeFont myfont;
+    myfont.load("Arial.ttf",60);
+    myfont.drawString(suji,20,60);
+    myfont.drawString(enzan,20,120);
+    if(ope == true){
+        myfont.drawString(suji2,20,180);
     }
-    ofDrawBitmapString(enzan2,20,70);
+    myfont.drawString(enzan2,20,250);
     if(equalFlag == true){
-        ofDrawBitmapString(keka2,20,90);
+        if(enzan == "+"){
+            keka = input + input2;
+        }else if(enzan == "-"){
+            keka = input -input2;
+        }else if(enzan == "×"){
+            keka = input * input2;
+        }else{
+            keka = input / input2;
+        }
+        keka2 = ofToString(keka);
+        myfont.drawString(keka2,20,330);
     }
 }
 
@@ -46,49 +47,59 @@ void ofApp::keyReleased(int key){
     if(opeFlag == true){
         switch(key){
             case '1':
+                ope = true;
                 _key=1;
                 input2 = input2* 10 +_key;
                 break;
             case '2':
+                ope = true;
                 _key=2;
                 input2 = input2* 10 +_key;
                 break;
             case '3':
+                ope = true;
                 _key=3;
                 input2 = input2* 10 +_key;
                 break;
             case '4':
+                ope = true;
                 _key=4;
                 input2 = input2* 10 +_key;
                 break;
             case '5':
+                ope = true;
                 _key=5;
                 input2 = input2* 10 +_key;
                 break;
             case '6':
+                ope = true;
                 _key=6;
                 input2 = input2* 10 +_key;
                 break;
             case '7':
+                ope = true;
                 _key=7;
                 input2 = input2* 10 +_key;
                 break;
             case '8':
+                ope = true;
                 _key=8;
                 input2 = input2* 10 +_key;
                 break;
             case '9':
+                ope = true;
                 _key=9;
                 input2 = input2* 10 +_key;
                 break;
             case '0':
+                ope = true;
                 _key=0;
                 input2 = input2* 10 +_key;
                 break;
             case'q':
                 //_key = 'q';
                 equalFlag = true;
-                enzan2 = "=";
+                enzan2 = "||";
                 break;
             default:
                 break;
@@ -146,11 +157,11 @@ void ofApp::keyReleased(int key){
                 opeFlag = true;
                 break;
             case 'z':
-                enzan = "*";
+                enzan = "×";
                 opeFlag = true;
                 break;
             case 'x':
-                enzan = "/";
+                enzan = "÷";
                 opeFlag = true;
                 break;
             default:
@@ -164,7 +175,7 @@ void ofApp::keyReleased(int key){
     
     suji = ofToString(input);
     suji2 = ofToString(input2);
-    keka2 = ofToString(keka);
+   
 }
 
 //--------------------------------------------------------------

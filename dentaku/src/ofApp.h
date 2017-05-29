@@ -35,6 +35,7 @@ class ofApp : public ofBaseApp{
         int input;
         int input2;
         bool opeFlag = false;
+        bool ope = false;
         bool equalFlag = false;
     
 };
